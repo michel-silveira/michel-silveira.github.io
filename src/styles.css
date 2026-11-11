@@ -60,5 +60,5 @@ h3 {
 }
 @font-face {
     font-family: "Blacklisted";
-    src: url("resources\fonts\Blacklisted.ttf");
+    src: url("/fonts/Blacklisted.ttf");
 }

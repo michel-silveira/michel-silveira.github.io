@@ -1,3 +1,7 @@
+@use '@fontsource-variable/outfit';
+@use '@fontsource-variable/dm-sans';
+@use '@fontsource-variable/jetbrains-mono';
+
 :root {
   /* Color tokens */
   --bg: #e9e0e4;
@@ -7,11 +11,16 @@
   --glass: rgb(255 249 251 / 0.42);
   --glass-strong: rgb(255 249 251 / 0.64);
   --glass-border: rgb(255 255 255 / 0.6);
-  --glass-shadow: rgb(120 60 85 / 0.10);
+  --glass-shadow: rgb(120 60 85 / 0.1);
   --fg: #3b2a32;
   --muted: #7b6570;
   --accent: #c25f86;
   --accent-soft: rgb(240 179 198 / 0.45);
   --on-accent: #fff7fa;
-  --line: rgb(59 42 50 / 0.10);
+  --line: rgb(59 42 50 / 0.1);
+
+  /* Fonts */
+  --font-display: 'Outfit Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'DM Sans Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 }

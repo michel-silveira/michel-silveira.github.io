@@ -2,6 +2,24 @@
 @use '@fontsource-variable/dm-sans';
 @use '@fontsource-variable/jetbrains-mono';
 
+@mixin dark-tokens {
+  --bg: #1c1519;
+  --blob-1: #6b3550;
+  --blob-2: #4a2a3a;
+  --blob-3: #7a4860;
+  --glass: rgb(42 29 36 / 0.46);
+  --glass-strong: rgb(42 29 36 / 0.7);
+  --glass-border: rgb(255 214 228 / 0.13);
+  --glass-shadow: rgb(0 0 0 / 0.3);
+  --fg: #f3e6ec;
+  --muted: #b89eab;
+  --accent: #f2a9c2;
+  --accent-soft: rgb(242 169 194 / 0.16);
+  --on-accent: #2a1820;
+  --line: rgb(243 230 236 / 0.1);
+  color-scheme: dark;
+}
+
 :root {
   /* Color tokens */
   --bg: #e9e0e4;
@@ -32,37 +50,9 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --bg: #1c1519;
-    --blob-1: #6b3550;
-    --blob-2: #4a2a3a;
-    --blob-3: #7a4860;
-    --glass: rgb(42 29 36 / 0.46);
-    --glass-strong: rgb(42 29 36 / 0.7);
-    --glass-border: rgb(255 214 228 / 0.13);
-    --glass-shadow: rgb(0 0 0 / 0.3);
-    --fg: #f3e6ec;
-    --muted: #b89eab;
-    --accent: #f2a9c2;
-    --accent-soft: rgb(242 169 194 / 0.16);
-    --on-accent: #2a1820;
-    --line: rgb(243 230 236 / 0.1);
-    color-scheme: dark;
+    @include dark-tokens;
   }
 }
 :root[data-theme='dark'] {
-  --bg: #1c1519;
-  --blob-1: #6b3550;
-  --blob-2: #4a2a3a;
-  --blob-3: #7a4860;
-  --glass: rgb(42 29 36 / 0.46);
-  --glass-strong: rgb(42 29 36 / 0.7);
-  --glass-border: rgb(255 214 228 / 0.13);
-  --glass-shadow: rgb(0 0 0 / 0.3);
-  --fg: #f3e6ec;
-  --muted: #b89eab;
-  --accent: #f2a9c2;
-  --accent-soft: rgb(242 169 194 / 0.16);
-  --on-accent: #2a1820;
-  --line: rgb(243 230 236 / 0.1);
-  color-scheme: dark;
+  @include dark-tokens;
 }

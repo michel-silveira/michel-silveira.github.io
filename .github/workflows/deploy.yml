@@ -1,0 +1,65 @@
+name: Build and deploy
+
+# When the workflow runs
+on:
+  push:                 # every push, on any branch
+  pull_request:         # every pull request
+  workflow_dispatch:    # a "Run workflow" button in the Actions tab
+
+# Default permissions for all jobs: only read the repository
+permissions:
+  contents: read
+
+# Never run two deployments at the same time
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      # Must come before setup-node so caching can find pnpm.
+      # Reads the pnpm version from "packageManager" in package.json.
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run tests
+        run: pnpm ng test --watch=false
+
+      - name: Build
+        run: pnpm ng build
+
+      # Only master's build is deployed, so only upload it there
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/master'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist/michel-silveira/browser
+
+  deploy:
+    needs: build                              # wait for build to succeed
+    if: github.ref == 'refs/heads/master'     # only deploy from master
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write                            # allowed to publish to Pages
+      id-token: write                         # proves the deploy really comes from this repo
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

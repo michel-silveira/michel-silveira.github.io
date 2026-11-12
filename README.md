@@ -24,7 +24,7 @@ pnpm ng build      # build for production into dist/
 
 ## Deployment
 
-Every push and pull request is tested and built by the [Build and deploy](.github/workflows/deploy.yml) workflow. Pushes to `master` are also deployed to GitHub Pages.
+Every push and pull request is tested and built by the [Build and deploy](.github/workflows/deploy.yml) workflow. Pushes to `main` are also deployed to GitHub Pages.
 
 ## Project structure
 

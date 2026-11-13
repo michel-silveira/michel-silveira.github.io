@@ -29,7 +29,9 @@ Every push and pull request is tested and built by the [Build and deploy](.githu
 ## Project structure
 
 ```
-├── .github/workflows/   # CI/CD workflow
+├── .github/
+│   ├── ISSUE_TEMPLATE/  # Issue templates
+│   └── workflows/       # CI/CD workflow
 ├── public/              # Static files, copied as-is to the root of the build output
 │   ├── favicon.png
 │   ├── fonts/
@@ -39,8 +41,10 @@ Every push and pull request is tested and built by the [Build and deploy](.githu
 │   ├── index.html       # Host page
 │   ├── main.ts          # Application entry point
 │   └── styles.scss      # Global styles
+├── .nvmrc               # Node.js version
 ├── angular.json         # Angular workspace configuration
-└── package.json
+├── package.json
+└── tsconfig.json        # TypeScript configuration
 ```
 
 ## Disclaimer

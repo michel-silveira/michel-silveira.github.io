@@ -2,7 +2,7 @@
 name: Epic
 about: A larger goal split into sub-issues
 title: ''
-labels: ''
+labels: 'epic'
 ---
 
 ## Goal

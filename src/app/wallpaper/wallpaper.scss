@@ -1,0 +1,45 @@
+.wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.9;
+  animation: drift 28s ease-in-out infinite alternate;
+}
+.blob-1 {
+  width: 46vmax;
+  height: 46vmax;
+  background: var(--blob-1);
+  top: -12vmax;
+  left: -10vmax;
+}
+.blob-2 {
+  width: 40vmax;
+  height: 40vmax;
+  background: var(--blob-2);
+  bottom: -14vmax;
+  right: -8vmax;
+  animation-delay: -9s;
+}
+.blob-3 {
+  width: 30vmax;
+  height: 30vmax;
+  background: var(--blob-3);
+  top: 38%;
+  left: 46%;
+  animation-delay: -18s;
+}
+@keyframes drift {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(4vmax, 3vmax) scale(1.08);
+  }
+}

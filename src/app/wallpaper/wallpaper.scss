@@ -1,4 +1,4 @@
-.wallpaper {
+:host {
   position: fixed;
   inset: 0;
   z-index: -1;
@@ -11,6 +11,10 @@
   filter: blur(70px);
   opacity: 0.9;
   animation: drift 28s ease-in-out infinite alternate;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
 }
 .blob-1 {
   width: 46vmax;

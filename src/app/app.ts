@@ -1,8 +1,9 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Wallpaper } from './wallpaper/wallpaper';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Wallpaper],
   selector: 'app-root',
   styleUrl: './app.scss',
   templateUrl: './app.html',

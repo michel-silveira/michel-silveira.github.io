@@ -1,12 +1,89 @@
 :host {
+  display: block;
   position: sticky;
   top: calc(env(safe-area-inset-top, 0px) + 16px);
   z-index: 5;
   margin-top: 16px;
+}
+.nav {
   border-radius: var(--radius-pill);
   padding: 8px 8px 8px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+}
+.brand {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.05rem;
+  letter-spacing: 0.01em;
+  color: var(--fg);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.nav-links {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition:
+    background 0.2s,
+    color 0.2s;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+.nav-links a:hover,
+.nav-links a[aria-current='page'] {
+  background: var(--accent-soft);
+  color: var(--fg);
+}
+.menu-toggle {
+  display: none;
+  border: 0;
+  background: var(--accent-soft);
+  color: var(--fg);
+  border-radius: var(--radius-pill);
+  padding: 8px 16px;
+  font: inherit;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+@media (max-width: 640px) {
+  .menu-toggle {
+    display: block;
+  }
+  .nav {
+    flex-wrap: wrap;
+    border-radius: var(--radius-lg);
+  }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    padding-bottom: 8px;
+  }
+  .nav.open .nav-links {
+    display: flex;
+  }
 }

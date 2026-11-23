@@ -8,11 +8,11 @@ import { Component, signal } from '@angular/core';
 export class Navbar {
   protected readonly expanded = signal(false);
 
-  toggleMenu() {
+  protected toggleMenu() {
     this.expanded.update(v => !v);
   }
 
-  closeMenu() {
+  protected closeMenu() {
     this.expanded.set(false);
   }
 }

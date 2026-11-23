@@ -11,4 +11,8 @@ export class Navbar {
   toggleMenu() {
     this.expanded.update(v => !v);
   }
+
+  closeMenu() {
+    this.expanded.set(false);
+  }
 }

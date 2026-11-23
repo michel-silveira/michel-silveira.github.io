@@ -1,4 +1,4 @@
-<nav class="nav glass" [class.open]="expanded()">
+<nav class="nav glass" [class.open]="expanded()" (keydown.escape)="closeMenu()">
   <a class="brand" href="#top" (click)="closeMenu()"><span class="brand-dot"></span>Michel Silveira</a>
   <button class="menu-toggle" [attr.aria-expanded]="expanded()" aria-controls="nav-links" (click)="toggleMenu()">
     {{ expanded() ? 'Close' : 'Menu' }}

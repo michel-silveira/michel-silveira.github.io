@@ -1,12 +1,12 @@
 <nav class="nav glass" [class.open]="expanded()">
-  <a class="brand" href="#top"><span class="brand-dot"></span>Michel Silveira</a>
+  <a class="brand" href="#top" (click)="closeMenu()"><span class="brand-dot"></span>Michel Silveira</a>
   <button class="menu-toggle" [attr.aria-expanded]="expanded()" aria-controls="nav-links" (click)="toggleMenu()">
     {{ expanded() ? 'Close' : 'Menu' }}
   </button>
   <ul class="nav-links" id="nav-links">
-    <li><a href="#top" aria-current="page">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#top" aria-current="page" (click)="closeMenu()">Home</a></li>
+    <li><a href="#about" (click)="closeMenu()">About</a></li>
+    <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
+    <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
   </ul>
 </nav>

@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Navbar } from './navbar';
 
 describe('Navbar', () => {
-    let fixture: ComponentFixture<Navbar>;
-    let element: HTMLElement;
+  let fixture: ComponentFixture<Navbar>;
+  let element: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,7 +16,7 @@ describe('Navbar', () => {
     await fixture.whenStable();
   });
 
-  it('clicking the menu should toggle', async () => {
+  it('opens and closes the menu when the menu button is clicked', async () => {
     const button = element.querySelector<HTMLButtonElement>('.menu-toggle')!;
     const nav = element.querySelector('.nav')!;
 

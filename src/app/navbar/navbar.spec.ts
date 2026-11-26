@@ -50,12 +50,32 @@ describe('Navbar', () => {
       button.click();
       await fixture.whenStable();
 
-      expect(nav.classList.contains('open'), `before clicking "${link.textContent.trim()}"`).toBe(true);
+      expect(nav.classList.contains('open'), `before clicking "${link.textContent.trim()}"`).toBe(
+        true,
+      );
 
       link.click();
       await fixture.whenStable();
 
-      expect(nav.classList.contains('open'), `after clicking "${link.textContent.trim()}"`).toBe(false);
+      expect(nav.classList.contains('open'), `after clicking "${link.textContent.trim()}"`).toBe(
+        false,
+      );
     }
+  });
+
+  it('closes the menu when Escape is pressed', async () => {
+    const button = element.querySelector<HTMLButtonElement>('.menu-toggle')!;
+    const nav = element.querySelector('.nav')!;
+    const list = element.querySelector('.nav-links')!;
+
+    button.click();
+    await fixture.whenStable();
+
+    expect(nav.classList.contains('open')).toBe(true);
+
+    list.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    await fixture.whenStable();
+
+    expect(nav.classList.contains('open')).toBe(false);
   });
 });

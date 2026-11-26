@@ -38,4 +38,24 @@ describe('Navbar', () => {
     expect(button.textContent?.trim()).toBe('Menu');
     expect(nav.classList.contains('open')).toBe(false);
   });
+
+  it('closes the menu when a link is clicked', async () => {
+    const button = element.querySelector<HTMLButtonElement>('.menu-toggle')!;
+    const nav = element.querySelector('.nav')!;
+    const links = element.querySelectorAll<HTMLAnchorElement>('a');
+
+    expect(links.length).toBe(5);
+
+    for (const link of links) {
+      button.click();
+      await fixture.whenStable();
+
+      expect(nav.classList.contains('open'), `before clicking "${link.textContent.trim()}"`).toBe(true);
+
+      link.click();
+      await fixture.whenStable();
+
+      expect(nav.classList.contains('open'), `after clicking "${link.textContent.trim()}"`).toBe(false);
+    }
+  });
 });

@@ -47,19 +47,17 @@ describe('Navbar', () => {
     expect(links.length).toBe(5);
 
     for (const link of links) {
+      const label = link.textContent.trim();
+
       button.click();
       await fixture.whenStable();
 
-      expect(nav.classList.contains('open'), `before clicking "${link.textContent.trim()}"`).toBe(
-        true,
-      );
+      expect(nav.classList.contains('open'), `before clicking "${label}"`).toBe(true);
 
       link.click();
       await fixture.whenStable();
 
-      expect(nav.classList.contains('open'), `after clicking "${link.textContent.trim()}"`).toBe(
-        false,
-      );
+      expect(nav.classList.contains('open'), `after clicking "${label}"`).toBe(false);
     }
   });
 
